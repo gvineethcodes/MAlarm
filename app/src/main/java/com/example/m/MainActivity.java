@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     SharedPreferences.Editor editor;
     Button b;
-    TextView textView;
-    String text="";
+    //TextView textView;
+    //String text="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
