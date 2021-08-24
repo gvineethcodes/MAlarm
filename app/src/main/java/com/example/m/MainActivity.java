@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     SharedPreferences.Editor editor;
     Button b;
+    TextView textView;
+    String text="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +88,53 @@ public class MainActivity extends AppCompatActivity {
 
         if(sharedpreferences.getBoolean("play",false)){
             Toast.makeText(getApplicationContext(), "G", Toast.LENGTH_SHORT).show();
+            
+            /*
+            textView = findViewById(R.id.textView);
+        final StorageReference[] mStorageRef = new StorageReference[1];
+        mStorageRef[0] = FirebaseStorage.getInstance().getReference();
+
+        mStorageRef[0].listAll()
+                .addOnSuccessListener(new OnSuccessListener<ListResult>() {
+                    @Override
+                    public void onSuccess(ListResult listResult) {
+                        text="";
+                        for (StorageReference prefix : listResult.getPrefixes()) {
+                            // All the prefixes under listRef.
+                            // You may call listAll() recursively on them.
+                            //text=text+prefix.toString()+"\n";
+                        }
+
+                        for (StorageReference item : listResult.getItems()) {
+                            // All the items under listRef.
+                            item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Toast.makeText(getApplicationContext(), "R", Toast.LENGTH_SHORT).show();
+
+                                    try {
+                                        mediaPlayer = new MediaPlayer();
+                                        mediaPlayer.setDataSource(getApplicationContext(), uri);
+                                        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                                        mediaPlayer.prepare();
+                                        mediaPlayer.start();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                    textView.setText(""+listResult.getItems().size());
+
+                                }
+                            });
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Uh-oh, an error occurred!
+                    }
+                });
+            */
 
             StorageReference mStorageRef;
             mStorageRef = FirebaseStorage.getInstance().getReference("/APATKALAMANDU YEHOVA NEEKU UTTARAMICHUNU Song.mp3");
